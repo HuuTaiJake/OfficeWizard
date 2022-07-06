@@ -30,11 +30,11 @@ public class PlayerMove : MonoBehaviour
     {
         if (_isTopdown)
         {
-            transform.Translate(_inputHorizontal, _inputVertical, 0);
+            transform.Translate(_inputHorizontal * _moveSpeed, _inputVertical * _moveSpeed, 0);
         }
         else
         {
-            transform.Translate(_inputHorizontal, 0, _inputVertical);
+            transform.Translate(_inputHorizontal * _moveSpeed, 0, _inputVertical * _moveSpeed);
         }
     }
 }
