@@ -10,8 +10,6 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float _moveSpeed;
     private float _moveSpeedMax;
 
-    [SerializeField] private bool _isTopdown;
-
     // Start is called before the first frame update
     private void Start()
     {
@@ -21,20 +19,19 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        _inputVertical = Input.GetAxis("Vertical");
-        _inputHorizontal = Input.GetAxis("Horizontal");
-        if (Input.GetKeyDown(KeyCode.Space)) _isTopdown = !_isTopdown;
+        _inputVertical = InputManager.Instance.GetVerticalAxis();
+        _inputHorizontal = InputManager.Instance.GetHorizontalAxis();
     }
 
     private void FixedUpdate()
     {
-        if (_isTopdown)
+        if (InputManager.Instance.GetGamemode()==Gamemode.Topdown)
         {
-            transform.Translate(_inputHorizontal * _moveSpeed, _inputVertical * _moveSpeed, 0);
+            transform.Translate(_inputHorizontal * _moveSpeed * Time.deltaTime, _inputVertical * _moveSpeed * Time.deltaTime, 0);
         }
         else
         {
-            transform.Translate(_inputHorizontal * _moveSpeed, 0, _inputVertical * _moveSpeed);
+            transform.Translate(_inputHorizontal * _moveSpeed * Time.deltaTime, 0, _inputVertical * _moveSpeed * Time.deltaTime);
         }
     }
 }
