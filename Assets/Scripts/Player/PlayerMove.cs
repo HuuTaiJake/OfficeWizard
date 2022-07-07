@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerMove : MonoBehaviour
+public class PlayerMove : NetworkBehaviour
 {
     private float _inputVertical;
     private float _inputHorizontal;
@@ -14,6 +15,11 @@ public class PlayerMove : MonoBehaviour
     private void Start()
     {
         _moveSpeedMax = _moveSpeed;
+    }
+
+    public override void OnNetworkSpawn()
+    {
+        if (!IsOwner) Destroy(this);
     }
 
     // Update is called once per frame
