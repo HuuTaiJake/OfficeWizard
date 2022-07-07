@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerAnimator : MonoBehaviour
+public class PlayerAnimator : NetworkBehaviour
 {
     [SerializeField] private Animator _animator;
     private float _inputVertical;
@@ -24,6 +25,11 @@ public class PlayerAnimator : MonoBehaviour
         {
 
         }
+    }
+
+    public override void OnNetworkSpawn()
+    {
+        if (!IsOwner) Destroy(this);
     }
 
     // Update is called once per frame
