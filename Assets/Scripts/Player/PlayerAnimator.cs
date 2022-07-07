@@ -29,10 +29,10 @@ public class PlayerAnimator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _inputVertical = Input.GetAxis("Vertical");
-        _inputHorizontal = Input.GetAxis("Horizontal");
-        _inputVerticalRaw = Input.GetAxisRaw("Vertical");
-        _inputHorizontalRaw = Input.GetAxisRaw("Horizontal");
+        _inputVertical = InputManager.Instance.GetVerticalAxis();
+        _inputHorizontal = InputManager.Instance.GetHorizontalAxis();
+        _inputVerticalRaw = InputManager.Instance.GetVerticalAxisRaw();
+        _inputHorizontalRaw = InputManager.Instance.GetHorizontalAxisRaw();
 
         _animator.SetFloat("Vertical", _inputVertical);
         _animator.SetFloat("Horizontal", _inputHorizontal);
