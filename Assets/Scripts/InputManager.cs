@@ -3,15 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum JoystickDefine
-{
-    Movement,
-    Horizontal,
-    Vertical,
-    NormalSkill,
-    SpecialSkill,
-    UltimateSkill
-}
+
 
 public enum Gamemode
 {
