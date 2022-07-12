@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Netcode;
+using UnityEngine.Networking;
+using Mirror;
 using UnityEngine;
 
-public class PlayerMove : NetworkBehaviour
+public class PlayerMove : MonoSingleton<PlayerMove>//NetworkBehaviour
 {
     private float _inputVertical;
     private float _inputHorizontal;
@@ -17,10 +18,6 @@ public class PlayerMove : NetworkBehaviour
         _moveSpeedMax = _moveSpeed;
     }
 
-    public override void OnNetworkSpawn()
-    {
-        if (!IsOwner) Destroy(this);
-    }
 
     // Update is called once per frame
     private void Update()
@@ -31,13 +28,16 @@ public class PlayerMove : NetworkBehaviour
 
     private void FixedUpdate()
     {
-        if (InputManager.Instance.GetGamemode()==Gamemode.Topdown)
-        {
-            transform.Translate(_inputHorizontal * _moveSpeed * Time.deltaTime, _inputVertical * _moveSpeed * Time.deltaTime, 0);
-        }
-        else
-        {
-            transform.Translate(_inputHorizontal * _moveSpeed * Time.deltaTime, 0, _inputVertical * _moveSpeed * Time.deltaTime);
-        }
+        //if (this.isLocalPlayer)
+        //{
+            if (InputManager.Instance.GetGamemode() == Gamemode.Topdown)
+            {
+                transform.Translate(_inputHorizontal * _moveSpeed * Time.deltaTime, _inputVertical * _moveSpeed * Time.deltaTime, 0);
+            }
+            else
+            {
+                transform.Translate(_inputHorizontal * _moveSpeed * Time.deltaTime, 0, _inputVertical * _moveSpeed * Time.deltaTime);
+            }
+        //}
     }
 }
