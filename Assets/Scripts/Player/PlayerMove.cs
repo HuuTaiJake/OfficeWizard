@@ -4,7 +4,7 @@ using UnityEngine.Networking;
 using Mirror;
 using UnityEngine;
 
-public class PlayerMove : NetworkBehaviour
+public class PlayerMove : MonoSingleton<PlayerMove>//NetworkBehaviour
 {
     private float _inputVertical;
     private float _inputHorizontal;
@@ -28,8 +28,8 @@ public class PlayerMove : NetworkBehaviour
 
     private void FixedUpdate()
     {
-        if (this.isLocalPlayer)
-        {
+        //if (this.isLocalPlayer)
+        //{
             if (InputManager.Instance.GetGamemode() == Gamemode.Topdown)
             {
                 transform.Translate(_inputHorizontal * _moveSpeed * Time.deltaTime, _inputVertical * _moveSpeed * Time.deltaTime, 0);
@@ -38,6 +38,6 @@ public class PlayerMove : NetworkBehaviour
             {
                 transform.Translate(_inputHorizontal * _moveSpeed * Time.deltaTime, 0, _inputVertical * _moveSpeed * Time.deltaTime);
             }
-        }
+        //}
     }
 }
