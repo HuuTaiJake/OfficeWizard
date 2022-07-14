@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7efe29a35b29bdb4189f14b8910f4714, type: 3}
+  m_Name: ThrowPoop
+  m_EditorClassIdentifier: 
+  skillID: 2
+  joystickDefine: 1
+  skillSprite: {fileID: 21300000, guid: 09b4216f458292348b383a6aae95469b, type: 3}
+  skillSound: {fileID: 0}
+  skillBaseCooldown: 5
+  skillSize: 1
+  skillRange: 1
+  skillForce: 100
+  skillPower: 0
+  skillDamage: 1
+  player: {fileID: 0}
+  projectiles: []
+  shootPoints: []

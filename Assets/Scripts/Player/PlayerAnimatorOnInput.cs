@@ -18,7 +18,7 @@ public class PlayerAnimatorOnInput : MonoBehaviour
         _isMoving = false;
         try
         {
-            _animator = GetComponentInChildren<Animator>();
+            _animator = transform.Find("Player Sprite").GetComponent<Animator>();
         }
         catch
         {
