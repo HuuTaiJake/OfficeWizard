@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum SkillType : int
+public enum WeaponID
 {
     None,
-    PlungerNormal,
-    PlungerSpecial,
+    Plunger
 }
