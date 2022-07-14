@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5209c97722f35f84c8968dfbeb2703a2, type: 3}
   m_Name: SkillParticleShoot
   m_EditorClassIdentifier: 
-  skillID: 0
-  joystickDefine: 0
-  skillSprite: {fileID: 0}
+  skillID: 1
+  joystickDefine: 1
+  skillSprite: {fileID: 21300000, guid: 5f1ce7cab7e5d0240b4370ef1cf09203, type: 3}
   skillSound: {fileID: 0}
   skillBaseCooldown: 1
-  skillSize: 0
-  skillRange: 0
+  skillSize: 3
+  skillRange: 3
   skillForce: 0
-  skillPower: 0
-  rope: {fileID: 0}
+  skillPower: 3
+  rope: {fileID: 8242145851144660400, guid: c5470722838e8e440abd65d8140c4947, type: 3}
