@@ -5,5 +5,6 @@ using UnityEngine;
 public enum WeaponID
 {
     None,
-    Plunger
+    Plunger,
+    Rope,
 }
