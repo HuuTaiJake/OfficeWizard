@@ -86,9 +86,9 @@ public class JoystickManager : MonoBehaviour
     }
 
     private void JoystickTrigger()
-    {
-        OnJoystickTrigger?.Invoke();
+    {   
         _skill.Initialize(_player);
+        OnJoystickTrigger?.Invoke();
         //_skill.TriggerSkill(gameObject.GetComponent<JoystickManager>());
         Debug.Log("Shoot at:" + skillDirection);
     }
@@ -190,6 +190,11 @@ public class JoystickManager : MonoBehaviour
     public Vector3 GetSkillDirection()
     {
         return skillDirection;
+    }
+
+    public Vector3 GetSkillPosition()
+    {
+        return skillPosition;
     }
 
     private void ResetSkillDirection()
