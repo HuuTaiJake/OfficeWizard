@@ -5,13 +5,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SkillShooting", menuName = "Skills/SkillShooting")]
 public class SkillShooting : SkillBehavior
 {
-    public int skillDamage = 1;
-    public GameObject player;
+    private GameObject player;
     public List<GameObject> projectiles;
     public List<GameObject> shootPoints;
-    public override void Initialize(GameObject obj)
+    public override void Initialize(GameObject playerObject)
     {
-        player = obj;
+        player = playerObject;
         return;
         //throw new System.NotImplementedException();
     }

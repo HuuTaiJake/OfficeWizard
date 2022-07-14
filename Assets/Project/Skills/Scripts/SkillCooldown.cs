@@ -87,7 +87,7 @@ public class SkillCooldown : MonoBehaviour
 
     private void SkillTriggered()
     {
-        Debug.Log("Skill Triggered!!!");
+        
         _skill.TriggerSkill(joystick);
         _skillCooldownReadyTime = _skillCooldownDuration + Time.time;
         _skillCooldownTimeLeft = _skillCooldownDuration;
