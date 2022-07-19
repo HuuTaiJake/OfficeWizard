@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.0" orientation="orthogonal" renderorder="right-down" width="100" height="50" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="39">
+<map version="1.9" tiledversion="1.9.0" orientation="orthogonal" renderorder="right-down" width="100" height="50" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="40">
  <tileset firstgid="1" name="Overworld" tilewidth="16" tileheight="16" tilecount="16638" columns="141">
   <image source="Modern_Exteriors_Complete_Tileset2.png" width="2256" height="1888"/>
  </tileset>
@@ -329,26 +329,27 @@
  </layer>
  <objectgroup id="13" name="Tree_Col">
   <object id="2" x="55.3333" y="100.667" width="16.6667" height="42.6667"/>
-  <object id="3" x="232" y="82" width="16" height="44"/>
-  <object id="4" x="89.3333" y="322.667" width="14" height="45.3333"/>
-  <object id="5" x="376.667" y="244" width="14.6667" height="44"/>
-  <object id="6" x="328.667" y="436.667" width="14.6667" height="42.6667"/>
-  <object id="7" x="89.3333" y="610.667" width="14" height="44"/>
-  <object id="8" x="425.333" y="564" width="13.3333" height="43.3333"/>
-  <object id="9" x="424" y="692" width="16" height="43.3333"/>
-  <object id="10" x="714.667" y="691.333" width="10.6667" height="44"/>
+  <object id="3" x="226.667" y="81.3333" width="27.3333" height="44.6667"/>
+  <object id="4" x="82.6666" y="324.667" width="27.3333" height="43.3333"/>
+  <object id="5" x="370" y="242" width="27.3334" height="46"/>
+  <object id="6" x="322.667" y="435.334" width="28" height="44"/>
+  <object id="7" x="81.3333" y="611.334" width="28" height="43.3333"/>
+  <object id="8" x="420" y="565.333" width="26" height="42"/>
+  <object id="9" x="418" y="692.667" width="28" height="42.6666"/>
+  <object id="10" x="708.667" y="691.333" width="22.6667" height="44"/>
   <object id="11" x="490.667" y="595.333" width="68" height="72.6667"/>
-  <object id="12" x="853.333" y="578.667" width="18" height="44"/>
-  <object id="13" x="774.667" y="436.667" width="16.6667" height="41.3333"/>
-  <object id="14" x="557.333" y="298" width="20.6667" height="52.6667"/>
-  <object id="15" x="935.333" y="260" width="17.3333" height="43.3333"/>
+  <object id="12" x="848.666" y="579.334" width="27.3333" height="43.3333"/>
+  <object id="13" x="768.667" y="434" width="30" height="44"/>
+  <object id="14" x="549.333" y="302" width="38.6667" height="48.6667"/>
+  <object id="15" x="930" y="258" width="28.6666" height="45.3333"/>
   <object id="16" x="942.667" y="75.3333" width="18.6667" height="51.3333"/>
   <object id="17" x="1534" y="57.3333" width="20.6667" height="53.3333"/>
   <object id="29" x="790.5" y="351.5" width="16.75" height="15.25"/>
   <object id="30" x="208.909" y="304.909" width="13.4545" height="13.8182"/>
+  <object id="39" x="498" y="115.333" width="28" height="43.3333"/>
  </objectgroup>
  <objectgroup id="15" name="Building_Col">
-  <object id="32" x="592.667" y="8.66667" width="95.3333" height="165.333"/>
+  <object id="32" x="589.334" y="8.66667" width="101.333" height="165.333"/>
   <object id="33" x="576.667" y="160" width="46.6667" height="14.6667"/>
   <object id="34" x="656.667" y="159.333" width="45.3333" height="16.6667"/>
   <object id="35" x="136.333" y="3" width="46.3333" height="61.3333"/>
