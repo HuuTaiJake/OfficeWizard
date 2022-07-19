@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5213e8d50a065845bfa2fc353d62ef8, type: 3}
+  m_Name: Convo02
+  m_EditorClassIdentifier: 
+  _allLines:
+  - speaker: {fileID: 11400000, guid: 521bceb8bb468814db93f5e7c422844c, type: 2}
+    dialogue: Sao khung canh ben ngoai khac qua vay?
+  - speaker: {fileID: 11400000, guid: 68df8a5913c9b424e8f19980764b9042, type: 2}
+    dialogue: Vi day la the gioi khac voi the gioi cau sinh song
+  - speaker: {fileID: 11400000, guid: 68df8a5913c9b424e8f19980764b9042, type: 2}
+    dialogue: A cau can phai danh nhau voi may con quai vat nua
+  - speaker: {fileID: 11400000, guid: 521bceb8bb468814db93f5e7c422844c, type: 2}
+    dialogue: CAI GI CO???????????
+  - speaker: {fileID: 11400000, guid: 521bceb8bb468814db93f5e7c422844c, type: 2}
+    dialogue: Toang roi, toang thiet roi ong giao a!
