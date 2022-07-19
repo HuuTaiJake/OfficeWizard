@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5213e8d50a065845bfa2fc353d62ef8, type: 3}
+  m_Name: Convo01
+  m_EditorClassIdentifier: 
+  _allLines:
+  - speaker: {fileID: 11400000, guid: 521bceb8bb468814db93f5e7c422844c, type: 2}
+    dialogue: Toi dang o dau the nay?
+  - speaker: {fileID: 11400000, guid: 68df8a5913c9b424e8f19980764b9042, type: 2}
+    dialogue: Cau da nam ngu va tinh day o the gioi nay.
+  - speaker: {fileID: 11400000, guid: 521bceb8bb468814db93f5e7c422844c, type: 2}
+    dialogue: Cau la ai.
+  - speaker: {fileID: 11400000, guid: 68df8a5913c9b424e8f19980764b9042, type: 2}
+    dialogue: Thuc ra toi la nguoi se giup cau song sot o day.
