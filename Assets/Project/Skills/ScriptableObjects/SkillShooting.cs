@@ -20,7 +20,7 @@ public class SkillShooting : SkillBehavior
         {
             foreach (GameObject projectile in projectiles)
             {
-                GameObject _shotProjectile = Instantiate(projectile, player.transform.position, Quaternion.identity);
+                GameObject _shotProjectile = Instantiate(projectile, shootPoint.transform.position, Quaternion.identity);
                 Rigidbody _rigidbody;
                 if (_shotProjectile.TryGetComponent(out Rigidbody _rigidbodyComponent))
                 {
