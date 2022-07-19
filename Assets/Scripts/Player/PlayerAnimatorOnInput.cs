@@ -25,6 +25,10 @@ public class PlayerAnimatorOnInput : MonoBehaviour
 
         }
     }
+    private void OnEnable()
+    {
+        InputManager.Instance.OnSkillTrigger += SkillAnimation;
+    }
 
     // Update is called once per frame
     void Update()
@@ -53,6 +57,11 @@ public class PlayerAnimatorOnInput : MonoBehaviour
             _animator.SetFloat("Last Vertical", _inputVerticalRaw);
             _animator.SetFloat("Last Horizontal", _inputHorizontalRaw);
         }
+    }
+
+    void SkillAnimation()
+    {
+        _animator.SetTrigger("Skill");
     }
 
 }
