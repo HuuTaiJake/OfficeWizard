@@ -7,7 +7,6 @@ public class SkillParticleShoot : SkillBehavior
 {
     private GameObject player;
     public List<GameObject> particles;
-    public List<Vector3> shootPoints;
 
     public override void Initialize(GameObject obj)
     {

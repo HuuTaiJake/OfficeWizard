@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum Gamemode
 {
@@ -20,6 +21,8 @@ public class InputManager : MonoSingleton<InputManager>
     private float _inputHorizontalRaw;
     [SerializeField] public bool _isTopdown;
     [SerializeField] public bool _isMobile;
+
+    public UnityAction OnSkillTrigger;
 
     private void Start()
     {
