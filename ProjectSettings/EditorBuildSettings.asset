@@ -11,8 +11,8 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Scenes/TaiTestMultiplayer.unity
-    guid: 70cba73643bdce945aea7e33ef7ab99f
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: e91595aec1e7e8e4fbed564e2af588b6, type: 2}

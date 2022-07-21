@@ -12,7 +12,7 @@ public class CreatureAttribute : MonoBehaviour
 {
     public int maxHealth = 100;
     [HideInInspector]public int currentHealth;
-    public static float speed;
+    public float speed;
 
 
     private float _maxSpeed;
