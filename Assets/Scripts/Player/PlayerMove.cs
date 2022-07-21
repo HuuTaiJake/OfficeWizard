@@ -40,4 +40,26 @@ public class PlayerMove : MonoSingleton<PlayerMove>//NetworkBehaviour
             }
         //}
     }
+
+    public void SwitchControl(PlayerMove from, PlayerMove to, float duration)
+    {
+        to.enabled = true;
+        StartCoroutine(SwitchControlCoroutine(from, to, duration));
+        from.enabled = false;
+    }
+
+    IEnumerator SwitchControlCoroutine(PlayerMove from, PlayerMove to, float duration)
+    {
+        if (duration <=0)
+        {
+            yield break;
+        }
+        else
+        {
+            yield return new WaitForSeconds(duration);
+        }
+        from.enabled = true;
+        to.enabled = false;
+    }
+
 }

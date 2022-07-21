@@ -37,20 +37,28 @@ public class JoystickManager : MonoBehaviour
     void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
+        JoystickSetup(_joystickDefine);
 
-        if (_joystickDefine == JoystickDefine.DirectionalSkill)
+        _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;//transform.root.gameObject.transform;
+        skillPosition = _playerTransform.position;
+    }
+
+    private void JoystickSetup (JoystickDefine joystickDefine)
+    {
+        if (joystickDefine == JoystickDefine.DirectionalSkill)
         {
             _skillIndicatorRange = GameObject.FindGameObjectWithTag("Player").transform.Find("Skill Indicators/Directional/Range");
         }
-        else if (_joystickDefine == JoystickDefine.DragAndDropSkill)
+        else if (joystickDefine == JoystickDefine.DragAndDropSkill)
         {
             _skillIndicatorRange = GameObject.FindGameObjectWithTag("Player").transform.Find("Skill Indicators/Drag And Drop/Range");
             _skillIndicatorPosition = GameObject.FindGameObjectWithTag("Player").transform.Find("Skill Indicators/Drag And Drop/Position");
 
         }
-
-        _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;//transform.root.gameObject.transform;
-        skillPosition = _playerTransform.position;
+        else if (joystickDefine == JoystickDefine.TapSkill)
+        {
+            _skillIndicatorRange = GameObject.FindGameObjectWithTag("Player").transform.Find("Skill Indicators/Tap/Range");
+        }
     }
 
     void OnEnable()
@@ -78,6 +86,12 @@ public class JoystickManager : MonoBehaviour
             else if (_joystickDefine == JoystickDefine.DragAndDropSkill)
             {
                 DragAndDropSkill();
+            }
+
+            // Drag and drop skill
+            else if (_joystickDefine == JoystickDefine.TapSkill)
+            {
+                TapSkill();
             }
         }
 
@@ -176,6 +190,16 @@ public class JoystickManager : MonoBehaviour
         Debug.DrawLine(_playerTransform.position, _skillIndicatorPosition.right);
         Debug.DrawLine(_playerTransform.position, skillDirection);
     }
+
+    private void TapSkill()
+    {
+        _skillIndicatorRange.transform.localScale = new Vector3(_skillRange, _skillRange, 0);
+        _skillIndicatorRange.rotation = Quaternion.Euler(-90f, 0f, 0f);
+        if (InputManager.Instance.GetGamemode() == Gamemode.Topdown)
+        {
+            _skillIndicatorRange.rotation = Quaternion.Euler(0f, 0f, 0f);
+        }
+    }
     public void SetSkill(SkillBehavior skill)
     {
         _skill = skill;
@@ -208,5 +232,10 @@ public class JoystickManager : MonoBehaviour
         {
             _skillIndicatorRange.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
+    }
+
+    public void ResetSkillCooldown()
+    {
+        //Get
     }
 }

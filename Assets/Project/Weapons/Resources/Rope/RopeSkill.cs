@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "RopeSkill", menuName = "Skills/SkillShootRope")]
 public class RopeSkill : SkillBehavior
 {
-    private enum RopeType
+    public enum RopeType
     {
         Grab,
         Pull
@@ -14,11 +14,14 @@ public class RopeSkill : SkillBehavior
     private GameObject player;
     public GameObject rope;
     private GameObject shootpoint;
+    public Sprite tipSprite;
+
     public override void Initialize(GameObject playerObject)
     {
         
-        player = playerObject;
+        //player = playerObject;
         shootpoint = GameObject.FindGameObjectWithTag("Player").transform.Find("Skill Indicators/Shoot Point").gameObject;
+        player = shootpoint;
         return;
         //throw new System.NotImplementedException();
     }
@@ -29,6 +32,8 @@ public class RopeSkill : SkillBehavior
         _shotProjectile.SetActive(false);
         _shotProjectile.transform.rotation = Quaternion.FromToRotation(Vector3.up, _direction);
         _shotProjectile.GetComponentInChildren<Rigidbody>().velocity = _direction.normalized * skillForce;
+        _shotProjectile.GetComponentInChildren<RopeShoot>().ropeType = _ropeType;
+        _shotProjectile.GetComponentInChildren<SpriteRenderer>().sprite = tipSprite;
         _shotProjectile.SetActive(true);
     }
 }
