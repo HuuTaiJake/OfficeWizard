@@ -7,4 +7,5 @@ public enum WeaponID
     None,
     Plunger,
     Rope,
+    Controller
 }

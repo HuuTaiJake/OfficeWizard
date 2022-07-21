@@ -25,7 +25,7 @@ public class WeaponInfo : MonoBehaviour
         {
             GameObject currentJoystick = Instantiate(_joystickAsset, Vector3.zero, Quaternion.identity);
             _joysticks.Add(currentJoystick);
-            currentJoystick.transform.parent = skillJoystick.transform;
+            currentJoystick.transform.SetParent(skillJoystick.transform);
 
             JoystickManager joystickManager = currentJoystick.GetComponent<JoystickManager>();
             joystickManager.SetSkill(skill);

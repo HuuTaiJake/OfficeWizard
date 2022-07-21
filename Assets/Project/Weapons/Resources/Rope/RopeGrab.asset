@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd2d0fd3c7906445839a6238f469454, type: 3}
+  m_Name: RopeGrab
+  m_EditorClassIdentifier: 
+  skillID: 0
+  joystickDefine: 0
+  skillSprite: {fileID: 21300000, guid: bc6f2fc6e3dc2d94482ba474b46e90b2, type: 3}
+  skillSound: {fileID: 0}
+  skillBaseCooldown: 1
+  skillSize: 2
+  skillRange: 2
+  skillForce: 25
+  skillPower: 0
+  _ropeType: 0
+  rope: {fileID: 4235907848616616335, guid: c5470722838e8e440abd65d8140c4947, type: 3}
+  tipSprite: {fileID: 21300000, guid: 1deb6ef0f0533824794d1dd3a3328e18, type: 3}
