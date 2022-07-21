@@ -16,3 +16,4 @@ MonoBehaviour:
   weaponSprite: {fileID: 21300000, guid: 5f1ce7cab7e5d0240b4370ef1cf09203, type: 3}
   skills:
   - {fileID: 11400000, guid: 18f7cdba8d2f7b747b330acebc2bcb6d, type: 2}
+  - {fileID: 11400000, guid: 4a5929e1870ac014f83eecac271658dd, type: 2}

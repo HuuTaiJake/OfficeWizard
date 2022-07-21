@@ -14,12 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillID: 0
   joystickDefine: 0
-  skillSprite: {fileID: 21300000, guid: 0e99d88a022e82c489178cd3ea0c5118, type: 3}
+  skillSprite: {fileID: 21300000, guid: f1a2a83eee877e940b04530334783c3f, type: 3}
   skillSound: {fileID: 0}
   skillBaseCooldown: 1
   skillSize: 2
   skillRange: 2
-  skillForce: 30
+  skillForce: 25
   skillPower: 0
   _ropeType: 1
   rope: {fileID: 4235907848616616335, guid: c5470722838e8e440abd65d8140c4947, type: 3}
+  tipSprite: {fileID: 21300000, guid: 0e99d88a022e82c489178cd3ea0c5118, type: 3}

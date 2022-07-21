@@ -12,7 +12,6 @@ public class SkillShooting : SkillBehavior
     {
         player = playerObject;
         return;
-        //throw new System.NotImplementedException();
     }
     public override void TriggerSkill(JoystickManager joystickManager)
     {

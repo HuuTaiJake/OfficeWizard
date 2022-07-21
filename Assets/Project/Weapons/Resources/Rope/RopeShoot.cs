@@ -18,24 +18,35 @@ public class RopeShoot : MonoBehaviour
 
     private Rigidbody _rigidbody;
     private float _distance;
-    private GameObject _player;
+    public GameObject _player;
+    private GameObject _playerTransform;
     private bool _isReturn;
     private bool _isPulling;
+    private bool _isGrabbing;
+
+    private GameObject _grabbedObject;
+
+    public RopeSkill.RopeType ropeType;
+
 
     // Start is called before the first frame update
-    void  Start()
+    void Start()
     {
         _ropeSprites = new List<GameObject>();
         _isReturn = false;
         StartCoroutine(ShootDurationCounter());
         _startPosition = transform.position;
 
+
         _player = GameObject.FindGameObjectWithTag("Player");
+        _playerTransform = _player.transform.Find("Skill Indicators/Shoot Point").gameObject;
         StopPlayerMove();
         InstantiateRope();
 
         _rigidbody = GetComponent<Rigidbody>();
         _unitDirection = _rigidbody.velocity.normalized;
+
+        
     }
 
     // Update is called once per frame
@@ -45,54 +56,111 @@ public class RopeShoot : MonoBehaviour
         {
             DeleteRope();
         }
-        else if (_isPulling)
+        else if (_isPulling && ropeType == RopeSkill.RopeType.Pull)
         {
             PullRope();
         }
-        else 
+        else if (_isGrabbing && ropeType == RopeSkill.RopeType.Grab)
+        {
+            GrabRope();
+        }
+        else
         {
             CreateRope();
         }
 
-        if (_ropeSprites.Count - 1 == -1)
+        if (_ropeSprites.Count - 1 <= -1)
         {
-            LetPlayerMove();
-            Destroy(gameObject);
+            DestroyGameObject();
         }
     }
 
     private void PullRope()
     {
-        _distance = Mathf.Abs(Vector3.Distance(_oldPosition, _player.transform.position));
+        _distance = Mathf.Abs(Vector3.Distance(_oldPosition, _playerTransform.transform.position));
         if (_distance >= 1)
         {
             _oldPosition += _unitDirection;
-            GameObject g = _ropeSprites[0];
-            _ropeSprites.Remove(g);
-            Destroy(g);
+            if (_ropeSprites.Count > 0)
+            {
+                GameObject g = _ropeSprites[0];
+                _ropeSprites.Remove(g);
+                Destroy(g);
+            }
+        }
+    }
+
+    private void GrabRope()
+    {
+
+        _distance = Mathf.Abs(Vector3.Distance(_oldPosition, _grabbedObject.transform.position));
+        if (_distance >= 1)
+        {
+            _oldPosition -= _unitDirection;
+            if (_ropeSprites.Count > 0) {
+                GameObject g = _ropeSprites[_ropeSprites.Count - 1];
+                _ropeSprites.Remove(g);
+                Destroy(g);
+            }
+
+            //_distance = Mathf.Abs(Vector3.Distance(_oldPosition, _grabbedObject.transform.position));
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Wall"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Wall") && ropeType == RopeSkill.RopeType.Pull)
         {
             _isPulling = true;
             _rigidbody.velocity = Vector3.zero;
             _rigidbody.constraints = RigidbodyConstraints.FreezeAll;
             _oldPosition = _player.transform.position - _unitDirection;
-            _player.transform.DOMove(transform.position, 0.2f).OnComplete(LetPlayerMove);
-            
+            _player.transform.DOMove(transform.position, 0.2f).OnComplete(DestroyGameObject);
+        }
+        else if (other.gameObject.tag == "Enemy" && ropeType == RopeSkill.RopeType.Grab)
+        {
+            _isGrabbing = true;
+            _rigidbody.velocity = -_rigidbody.velocity;
+            //_rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+            _grabbedObject = other.gameObject;
+            _oldPosition = _grabbedObject.transform.position;
+            if (_grabbedObject.transform.position != _player.transform.position)
+            {
+                transform.transform.DOMove(_playerTransform.transform.position, 0.2f).OnComplete(DestroyGameObject);
+                _grabbedObject.transform.DOMove(_player.transform.position, 0.2f).OnComplete(DestroyGameObject);
+            }
+            else
+            {
+                DestroyGameObject();
+            }
+        }
+        else if (other.gameObject.tag != "Player" && other.gameObject.layer != LayerMask.NameToLayer("Default") && !_isReturn)
+        {
+            _isReturn = true;
+            _endPosition = _startPosition + _unitDirection;
+            _rigidbody.velocity = -_rigidbody.velocity;
         }
     }
-
-
-
 
     private void LetPlayerMove()
     {
         _player.GetComponent<PlayerMove>().enabled = true;
+        //_grabbedObject = null;
+        //Destroy(gameObject.transform.parent.gameObject);
     }
+
+    private void HideGameObject()
+    {
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+    }
+
+    private void DestroyGameObject()
+    {
+        LetPlayerMove();
+        //DOTween.KillAll();
+        Destroy(gameObject.transform.parent.gameObject);
+    }
+
     private void StopPlayerMove()
     {
         _player.GetComponent<PlayerMove>().enabled = false;
@@ -103,10 +171,20 @@ public class RopeShoot : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         GetComponentInChildren<Collider>().enabled = false;
         _endPosition = _startPosition + _unitDirection;
-        _isReturn = true;
-        _rigidbody.velocity = -_rigidbody.velocity;
-        //transform.rotation = Quaternion.FromToRotation(Vector3.up, -transform.up);
-
+        if (_isPulling || _isGrabbing)
+        {
+            _isReturn = false;
+            yield break;
+        }
+        else if (_isReturn)
+        {
+            yield break;
+        }
+        else
+        {
+            _isReturn = true;
+            _rigidbody.velocity = -_rigidbody.velocity;
+        }
     }
 
     private void CreateRope()
@@ -125,9 +203,12 @@ public class RopeShoot : MonoBehaviour
         if (_distance >= 1)
         {
             _endPosition -= _unitDirection;
-            GameObject g = _ropeSprites[_ropeSprites.Count-1];
-            _ropeSprites.Remove(g);
-            Destroy(g);
+            if (_ropeSprites.Count > 0)
+            {
+                GameObject g = _ropeSprites[_ropeSprites.Count - 1];
+                _ropeSprites.Remove(g);
+                Destroy(g);
+            }
         }
     }
 
