@@ -10,7 +10,7 @@ public class TerisBoss : MonoBehaviour
     void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
-        transform.position = new Vector3(_player.transform.position.x, transform.position.y, transform.position.z);
+        transform.position = new Vector3(Mathf.RoundToInt(_player.transform.position.x), transform.position.y, transform.position.z);
         StartCoroutine(Movement(0.5f));
         
     }
@@ -27,14 +27,15 @@ public class TerisBoss : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(duration);
-            if (transform.position.x < _player.transform.position.x)
+            if (transform.position.x < Mathf.RoundToInt(_player.transform.position.x) && transform.position.x < 8)
             {
                 transform.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
             }
-            else if (transform.position.x > _player.transform.position.x)
+            else if (transform.position.x > Mathf.RoundToInt(_player.transform.position.x) && transform.position.x > 1)
             {
                 transform.position = new Vector3(transform.position.x - 1, transform.position.y, transform.position.z);
             }
+            //transform.position = new Vector3(, transform.position.y, transform.position.z);
         }
     }
 }

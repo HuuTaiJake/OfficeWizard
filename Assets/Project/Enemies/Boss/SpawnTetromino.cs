@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnTetromino : MonoBehaviour
 {
     private int _nextTetrominoes;
+    public Transform _spawnPosition;
     public GameObject[] Tetrominoes;
     private GameObject _heldTetrominoes;
 
@@ -21,11 +22,12 @@ public class SpawnTetromino : MonoBehaviour
         {
             Destroy(_heldTetrominoes);
         }
-        Instantiate(Tetrominoes[_nextTetrominoes], transform.position, Quaternion.identity);
+        Instantiate(Tetrominoes[_nextTetrominoes], _spawnPosition.position, Quaternion.identity);
         _nextTetrominoes = Random.Range(0, Tetrominoes.Length);
-        _heldTetrominoes = Instantiate(Tetrominoes[_nextTetrominoes], transform.position, Quaternion.identity);
+        _heldTetrominoes = Instantiate(Tetrominoes[_nextTetrominoes], _spawnPosition.position, Quaternion.identity);
         _heldTetrominoes.GetComponent<TetrisBlock>().enabled = false;
         _heldTetrominoes.GetComponent<TetrisBlockInteraction>().enabled = false;
         _heldTetrominoes.transform.SetParent(transform);
     }
+
 }
