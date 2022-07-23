@@ -11,18 +11,18 @@ public enum StatusDefine
 public class CreatureAttribute : MonoBehaviour
 {
     public int maxHealth = 100;
-    [HideInInspector]public int currentHealth;
+    public int currentHealth;
     public float speed;
 
 
-    private float _maxSpeed;
+    public float _maxSpeed;
     [SerializeField] private int _damagePerSecs;
     private bool[] _isStatus;
     private Coroutine[] _statusCoroutine;
 
-
     private void Start()
     {
+        speed = _maxSpeed;
         currentHealth = maxHealth;
         _maxSpeed = speed;
         _isStatus = new bool[Enum.GetNames(typeof(StatusDefine)).Length];
@@ -110,5 +110,9 @@ public class CreatureAttribute : MonoBehaviour
     public void TakeDamage(int dmgToTake)
     {
         currentHealth -= dmgToTake;
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+        }
     }
 }

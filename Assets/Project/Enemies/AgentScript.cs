@@ -9,11 +9,15 @@ public class AgentScript : MonoBehaviour
 
     private NavMeshAgent agent;
 
+    private EnemyAI AI;
+
+    public 
+
     // Start is called before the first frame update
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
-
+        AI = GetComponent<EnemyAI>();
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
@@ -22,6 +26,17 @@ public class AgentScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        agent.SetDestination(target.position);
+
+        //move to player
+        if (Vector2.Distance(transform.position, target.transform.position) > AI.GetMinDistance() ||
+            Vector2.Distance(transform.position, target.transform.position) < AI.GetMaxDistance())
+        {
+            agent.SetDestination(target.position);
+        }
+        else
+        {
+            //Attack();
+        }
+
     }
 }
