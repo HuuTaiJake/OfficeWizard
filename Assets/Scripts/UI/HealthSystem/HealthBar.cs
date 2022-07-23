@@ -10,9 +10,8 @@ public class HealthBar : MonoBehaviour
     public Image fill;
     public int maxHealth;
     public int currentHealth;
-    public CreatureAttribute playerAttribute;
+    [HideInInspector]public CreatureAttribute playerAttribute;
 
-    public HealthBar healthbar;
 
     void Start()
     {

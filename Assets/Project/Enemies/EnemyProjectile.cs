@@ -5,20 +5,24 @@ using UnityEngine;
 public class EnemyProjectile : MonoBehaviour
 {
 
-    private Vector3 targetPosition;
+    private Vector3 _targetPosition;
+    private Vector3 _direction;
+    private Rigidbody2D _rigidBody;
     public float speed;
 
     private void Start()
     {
-        targetPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+        _targetPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+        _rigidBody = GetComponent<Rigidbody2D>();
+        _direction = _targetPosition - transform.position;
         StartCoroutine(DestroyAfterDuration(3f));
     }
 
     private void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-
-        if(transform.position == targetPosition)
+        //transform.position = Vector2.MoveTowards(transform.position, _targetPosition, speed * Time.deltaTime);
+        _rigidBody.velocity = _direction.normalized * speed;
+        if(transform.position == _targetPosition)
         {
             Destroy(gameObject);
         }

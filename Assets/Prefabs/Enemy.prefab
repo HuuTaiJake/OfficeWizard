@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3510607040970906116}
   m_Layer: 8
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,6 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
+  speed: 3
   _damagePerSecs: 0
 --- !u!114 &6082501896180034225
 MonoBehaviour:
@@ -156,14 +157,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3744380878059950973}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d70473c548e7dfa4796b40858176756b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
   target: {fileID: 0}
-  mininumDistance: 3
+  _mininumDistance: 3
+  _maximumDistance: 10
 --- !u!114 &3510607040970906116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,4 +180,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 6466917883701815356, guid: de6c6dff13b6a274b9141a5529d44273, type: 3}
   timeBetweenShots: 2
-  nextShotTime: 0
+  nextShotTime: 2

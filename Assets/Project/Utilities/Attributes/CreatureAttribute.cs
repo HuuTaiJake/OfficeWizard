@@ -18,14 +18,14 @@ public class CreatureAttribute : MonoBehaviour
     public float defense;
     private float _maxDefense;
 
-
     [SerializeField] private int _damagePerSecs;
     private bool[] _isStatus;
     private Coroutine[] _statusCoroutine;
 
-
     public virtual void Start()
+
     {
+        speed = _maxSpeed;
         currentHealth = maxHealth;
         _maxSpeed = speed;
         _maxDefense = defense;
@@ -114,6 +114,10 @@ public class CreatureAttribute : MonoBehaviour
     public void TakePiercingDamage(int dmgToTake)
     {
         currentHealth -= dmgToTake;
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+        }
     }
 
     public virtual void TakeNormalDamage (int dmgToTake)
