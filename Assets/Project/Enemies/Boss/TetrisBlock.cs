@@ -6,10 +6,11 @@ public class TetrisBlock : MonoBehaviour
 {
     public Vector3 rotationPoint;
     private float previousTime;
-    public float fallTime = 0.8f;
+    public float fallTime = 2.8f;
     public static int height = 20;
     public static int width = 10;
     private static Transform[,] grid = new Transform[width, height];
+    public GameObject blockParticle;
 
     // Start is called before the first frame update
     void Start()
@@ -50,12 +51,25 @@ public class TetrisBlock : MonoBehaviour
                 AddToGrid();
                 CheckForLines();
 
+                ParticleSystem[] particles = GetComponentsInChildren<ParticleSystem>();
+                foreach (ParticleSystem particle in particles)
+                {
+                    particle.Play();
+                }
                 this.enabled = false;
-                FindObjectOfType<SpawnTetromino>().NewTetromino();
 
+                FindObjectOfType<SpawnTetromino>().NewTetromino();
             }
             previousTime = Time.time;
         }
+    }
+
+    public void RotateBlock()
+    {
+        //rotate !
+        transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, 1), 90);
+        if (!ValidMove())
+            transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, 1), -90);
     }
 
     void CheckForLines()
@@ -64,10 +78,18 @@ public class TetrisBlock : MonoBehaviour
         {
             if (HasLine(i))
             {
-                DeleteLine(i);
-                RowDown(i);
+                StartCoroutine(LineDeletetion(i));
             }
         }
+    }
+
+    IEnumerator LineDeletetion(int i)
+    {
+        
+        PlayLineParticle(i);
+        yield return new WaitForSeconds(0.5f);
+        DeleteLine(i);
+        RowDown(i);
     }
 
     bool HasLine(int i)
@@ -87,6 +109,16 @@ public class TetrisBlock : MonoBehaviour
         {
             Destroy(grid[j, i].gameObject);
             grid[j, i] = null;
+        }
+    }
+
+    void PlayLineParticle(int i)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            grid[j, i].gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            GameObject g = Instantiate(blockParticle, grid[j, i].transform.position, Quaternion.identity);
+            g.GetComponent<ParticleSystem>().Play();
         }
     }
 

@@ -13,18 +13,22 @@ public class CreatureAttribute : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
     public float speed;
+    private float _maxSpeed;
 
+    public float defense;
+    private float _maxDefense;
 
-    public float _maxSpeed;
     [SerializeField] private int _damagePerSecs;
     private bool[] _isStatus;
     private Coroutine[] _statusCoroutine;
 
-    private void Start()
+    public virtual void Start()
+
     {
         speed = _maxSpeed;
         currentHealth = maxHealth;
         _maxSpeed = speed;
+        _maxDefense = defense;
         _isStatus = new bool[Enum.GetNames(typeof(StatusDefine)).Length];
         _statusCoroutine = new Coroutine[Enum.GetNames(typeof(StatusDefine)).Length];
 
@@ -50,7 +54,7 @@ public class CreatureAttribute : MonoBehaviour
             case (int)StatusDefine.Normal:
                 break;
             case (int)StatusDefine.Burn:
-                TakeDamage(_damagePerSecs);
+                TakeNormalDamage(_damagePerSecs);
                 Debug.Log(currentHealth);
                 break;
         }
@@ -107,12 +111,24 @@ public class CreatureAttribute : MonoBehaviour
         return _isStatus[(int)status];
     }
 
-    public void TakeDamage(int dmgToTake)
+    public void TakePiercingDamage(int dmgToTake)
     {
         currentHealth -= dmgToTake;
         if (currentHealth <= 0)
         {
             currentHealth = 0;
+        }
+    }
+
+    public virtual void TakeNormalDamage (int dmgToTake)
+    {
+        if (defense >= 0)
+        {
+            currentHealth -= (dmgToTake - (int)defense) <= 0 ? 0 : (dmgToTake - (int)defense);
+        }
+        else
+        {
+            currentHealth -= 1;
         }
     }
 }
