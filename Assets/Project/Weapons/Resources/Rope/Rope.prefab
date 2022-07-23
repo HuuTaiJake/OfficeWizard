@@ -141,6 +141,8 @@ MonoBehaviour:
   _speed: 1
   _ropeSprite: {fileID: 5364092472943171308, guid: 06a0f26daf9b49b4685e0b18054daf29, type: 3}
   _ropesLayout: {fileID: 4235907848616616335}
+  _player: {fileID: 0}
+  ropeType: 0
 --- !u!331 &5235729533114180990
 SpriteMask:
   m_ObjectHideFlags: 0
@@ -218,5 +220,5 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 1
+  m_Constraints: 120
+  m_CollisionDetection: 3
