@@ -11,16 +11,21 @@ public class TetrisBlock : MonoBehaviour
     public static int width = 10;
     private static Transform[,] grid = new Transform[width, height];
     public GameObject blockParticle;
+    private GameObject _player;
+    private Coroutine _blockMove;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        _player = GameObject.FindGameObjectWithTag("Player");
+        _blockMove=StartCoroutine(MoveBlock(1f));
     }
 
     // Update is called once per frame
     void Update()
     {
+        //MoveBlock();
+
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             transform.position += new Vector3(-1, 0, 0);
@@ -57,10 +62,32 @@ public class TetrisBlock : MonoBehaviour
                     particle.Play();
                 }
                 this.enabled = false;
+                StopCoroutine(_blockMove);
 
                 FindObjectOfType<SpawnTetromino>().NewTetromino();
             }
             previousTime = Time.time;
+        }
+    }
+
+    private IEnumerator MoveBlock(float duration)
+    {
+        //transform.position = Vector3.Lerp(transform.position,new Vector3( _player.transform.position.x, transform.position.y, transform.position.z),2f);
+        while (true)
+        {
+            yield return new WaitForSeconds(duration);
+            if (transform.position.x > Mathf.RoundToInt(_player.transform.position.x))
+            {
+                transform.position += new Vector3(-1, 0, 0);
+                if (!ValidMove())
+                    transform.position -= new Vector3(-1, 0, 0);
+            }
+            if (transform.position.x < Mathf.RoundToInt(_player.transform.position.x))
+            {
+                transform.position += new Vector3(1, 0, 0);
+                if (!ValidMove())
+                    transform.position -= new Vector3(1, 0, 0);
+            }
         }
     }
 
