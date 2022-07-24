@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34a98e7c85189e847920bd22a5e9e0cb, type: 3}
-  m_Name: CardFriend
+  m_Name: MisteryCard
   m_EditorClassIdentifier: 
-  _speakerName: Tai
-  _speakerSprite: {fileID: 21300000, guid: 1eca1f468e6e8964abf1ed0107014406, type: 3}
+  _speakerName: ???
+  _speakerSprite: {fileID: 21300000, guid: c31573150cf394546baf38e64e2f2d91, type: 3}
