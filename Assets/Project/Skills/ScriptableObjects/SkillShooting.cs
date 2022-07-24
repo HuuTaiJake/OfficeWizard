@@ -11,6 +11,8 @@ public class SkillShooting : SkillBehavior
     public override void Initialize(GameObject playerObject)
     {
         player = playerObject;
+        shootPoints.Clear();
+        shootPoints.Add(player);
         return;
     }
     public override void TriggerSkill(JoystickManager joystickManager)

@@ -16,7 +16,7 @@ MonoBehaviour:
   joystickDefine: 0
   skillSprite: {fileID: 21300000, guid: 800ff781479ad5544b8e534e5375328a, type: 3}
   skillSound: {fileID: 0}
-  skillBaseCooldown: 10
+  skillBaseCooldown: 1
   skillSize: 1
   skillRange: 1
   skillForce: 10
@@ -24,4 +24,4 @@ MonoBehaviour:
   projectiles:
   - {fileID: 8775366262801476497, guid: e2e3cff71737989468255e3b9c3b900a, type: 3}
   shootPoints:
-  - {fileID: 7510533962350842303, guid: 952ad7aa75bb9a143a9cd5f9751364d5, type: 3}
+  - {fileID: 0}

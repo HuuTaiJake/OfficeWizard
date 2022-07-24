@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageOnContact : MonoBehaviour
+public class DestroyOnContact : MonoBehaviour
 {
     private CreatureAttribute _creatureAttribute;
     //private Collider _collider;
-    public int damage;
+    //public int damage;
     public List<string> tags;
 
     // Start is called before the first frame update
@@ -37,15 +37,10 @@ public class DamageOnContact : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
    
-        Debug.Log("Hit");
+        Debug.Log("Poof!");
         if (tags.Contains(collision.gameObject.tag))
         {
-            _creatureAttribute = collision.gameObject.GetComponent<CreatureAttribute>();
-            if (_creatureAttribute==null)
-            {
-                _creatureAttribute = collision.gameObject.GetComponentInParent<CreatureAttribute>();
-            }
-            _creatureAttribute.TakeNormalDamage(damage);
+            Destroy(gameObject);
         }
     }
 }
