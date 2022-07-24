@@ -16,6 +16,7 @@
     "com.unity.multiplayer.samples.coop": "https://github.com/Unity-Technologies/com.unity.multiplayer.samples.coop.git?path=/Packages/com.unity.multiplayer.samples.coop#main",
     "com.unity.netcode.gameobjects": "1.0.0",
     "com.unity.package-validation-suite": "0.24.0-preview",
+    "com.unity.recorder": "2.5.7",
     "com.unity.render-pipelines.universal": "10.8.1",
     "com.unity.services.authentication": "2.1.1",
     "com.unity.services.core": "1.1.0-pre.8",
