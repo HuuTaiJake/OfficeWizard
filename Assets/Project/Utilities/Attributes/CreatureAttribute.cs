@@ -25,9 +25,9 @@ public class CreatureAttribute : MonoBehaviour
     public virtual void Start()
 
     {
+        _maxSpeed = speed;
         speed = _maxSpeed;
         currentHealth = maxHealth;
-        _maxSpeed = speed;
         _maxDefense = defense;
         _isStatus = new bool[Enum.GetNames(typeof(StatusDefine)).Length];
         _statusCoroutine = new Coroutine[Enum.GetNames(typeof(StatusDefine)).Length];
