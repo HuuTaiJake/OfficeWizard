@@ -46,8 +46,8 @@ public class EnemyAI : MonoBehaviour
         {
             //Attack();
         }*/
-
-        _spriteRenderer.flipX = target.transform.position.x > this.transform.position.x;
+        if (Vector2.Distance(transform.position, target.transform.position) < GetMaxDistance())
+            _spriteRenderer.flipX = target.transform.position.x > this.transform.position.x;
     }
 
 

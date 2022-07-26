@@ -161,7 +161,7 @@ MonoBehaviour:
   maxHealth: 50
   currentHealth: 0
   speed: 3
-  _maxSpeed: 0
+  defense: 0
   _damagePerSecs: 3
 --- !u!114 &1697883839182268233
 MonoBehaviour:
@@ -177,8 +177,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   speed: 20
-  _mininumDistance: 3
-  _maximumDistance: 10
+  _mininumDistance: 2
+  _maximumDistance: 4
 --- !u!114 &3795655747653617401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,6 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b51fe05d1fac6a4cbdaff06698d2e92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
   projectile: {fileID: 6466917883701815356, guid: de6c6dff13b6a274b9141a5529d44273, type: 3}
   timeBetweenShots: 2
   nextShotTime: 2

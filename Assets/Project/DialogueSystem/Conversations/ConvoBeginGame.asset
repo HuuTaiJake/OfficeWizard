@@ -24,4 +24,10 @@ MonoBehaviour:
   - speaker: {fileID: 11400000, guid: 521bceb8bb468814db93f5e7c422844c, type: 2}
     dialogue: Who are you?
   - speaker: {fileID: 11400000, guid: 68df8a5913c9b424e8f19980764b9042, type: 2}
-    dialogue: It's me, Super dep trai Card. I will guild you to explore this world
+    dialogue: You will know soon. I am the one who will guild you to explore this
+      world.
+  - speaker: {fileID: 11400000, guid: 521bceb8bb468814db93f5e7c422844c, type: 2}
+    dialogue: What do you mean? I am still on Earth?
+  - speaker: {fileID: 11400000, guid: 68df8a5913c9b424e8f19980764b9042, type: 2}
+    dialogue: Oh yes, but this Earth is still different to yours? Just go outside
+      and see
