@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 6184008650899231579}
   - component: {fileID: 2786225927844739300}
   - component: {fileID: 2649954145007452113}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy2_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,8 +193,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.21, y: 0.18}
-  m_Size: {x: 1.92, y: 2.78}
+  m_Offset: {x: -0.21, y: 0.4}
+  m_Size: {x: 1.85, y: 2.21}
   m_Direction: 0
 --- !u!114 &2786225927844739300
 MonoBehaviour:
@@ -210,8 +210,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  speed: 5
-  _maxSpeed: 0
+  speed: 8
+  defense: 0
   _damagePerSecs: 5
 --- !u!114 &2649954145007452113
 MonoBehaviour:
@@ -228,4 +228,4 @@ MonoBehaviour:
   target: {fileID: 0}
   speed: 30
   _mininumDistance: 3
-  _maximumDistance: 10
+  _maximumDistance: 7

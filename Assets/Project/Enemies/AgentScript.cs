@@ -28,7 +28,7 @@ public class AgentScript : MonoBehaviour
     {
 
         //move to player
-        if (Vector2.Distance(transform.position, target.transform.position) > AI.GetMinDistance() ||
+        if (Vector2.Distance(transform.position, target.transform.position) > AI.GetMinDistance() &&
             Vector2.Distance(transform.position, target.transform.position) < AI.GetMaxDistance())
         {
             agent.SetDestination(target.position);

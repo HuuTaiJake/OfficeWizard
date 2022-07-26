@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5579618448891585643}
   - component: {fileID: 7900489233512121241}
-  - component: {fileID: 8161206368287069720}
-  - component: {fileID: 52891169834276292}
-  - component: {fileID: 922174183699230642}
+  - component: {fileID: -9220286697113585799}
+  - component: {fileID: 6383494805855743103}
+  - component: {fileID: -6767539299615538483}
+  - component: {fileID: -9132509847786661401}
   m_Layer: 3
   m_Name: Fire Projectile
   m_TagString: Untagged
@@ -27,8 +28,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6466917883701815356}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.6945763, y: -5.694412, z: 69.45894}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: be0eea58047f75342bcdb5c86e87b804, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -85,7 +86,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8161206368287069720
+--- !u!114 &-9220286697113585799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6466917883701815356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: de6c6dff13b6a274b9141a5529d44273
+  hasSpawned: 0
+--- !u!114 &6383494805855743103
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,8 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382845f17d75ad04b939a922cae66b40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
---- !u!58 &52891169834276292
+  speed: 10
+--- !u!58 &-6767539299615538483
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,7 +132,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!50 &922174183699230642
+--- !u!50 &-9132509847786661401
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0

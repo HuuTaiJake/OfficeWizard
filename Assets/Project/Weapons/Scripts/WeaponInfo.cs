@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
+//using UnityEditor;
 using UnityEngine;
+using UnityEditor;
+
+
 
 public class WeaponInfo : MonoBehaviour
 {
     public WeaponConfig weaponConfig;
     private SpriteRenderer _weaponSprite;
     [SerializeField] private List<GameObject> _joysticks;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +18,8 @@ public class WeaponInfo : MonoBehaviour
         _weaponSprite.sprite = weaponConfig.weaponSprite;
         SetupJoystick();
     }
-
+    
+    
     private void SetupJoystick()
     {
         var _joystickAsset = Resources.Load("Joysticks/Skill Joystick") as GameObject;
@@ -32,6 +35,7 @@ public class WeaponInfo : MonoBehaviour
             currentJoystick.AddComponent<SkillCooldown>();
         }
     }
+
 
     // Update is called once per frame
     void Update()
