@@ -8,10 +8,11 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 1fa25d03934ea624a82bf2fcee6f0873, type: 3}
-  missingFiles:
-  - Assets/Project/Sprites/Exteriors/Modern_Exteriors_Complete_Tileset.png
+  missingFiles: []
   errors:
-  - 'Missing texture asset: ../Project/Sprites/Exteriors/Modern_Exteriors_Complete_Tileset.png'
+  - Mismatching width/height detected. Tileset = (2208, 1888), image = (2256, 1888).
+    This may happen when a tileset image has been resized. Open map and tileset in
+    Tiled Map Editor and resave.
   - 'Missing texture asset: ../../../SERENE_VILLAGE_REVAMPED/Serene_Village_16x16.png'
   - Could not find tile 407. Make sure the tilesets were successfully imported.
   - Could not find tile 408. Make sure the tilesets were successfully imported.
