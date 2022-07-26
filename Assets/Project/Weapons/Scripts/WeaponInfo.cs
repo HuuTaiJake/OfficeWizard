@@ -19,7 +19,7 @@ public class WeaponInfo : MonoBehaviour
 
     private void SetupJoystick()
     {
-        GameObject _joystickAsset = AssetDatabase.LoadAssetAtPath("Assets/Project/Prefabs/Skill Joystick.prefab", typeof(Object)) as GameObject;
+        var _joystickAsset = Resources.Load("Joysticks/Skill Joystick") as GameObject;
         GameObject skillJoystick = GameObject.Find("Skill Joystick");
         foreach (SkillBehavior skill in weaponConfig.skills)
         {

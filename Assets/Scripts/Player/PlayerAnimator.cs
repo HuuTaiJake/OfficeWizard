@@ -51,7 +51,7 @@ public class PlayerAnimator : MonoBehaviour
         Vector3 _lastDirection = new Vector3(0, 0, lastPositionZ);
         Vector3 _currentDirection = _transform.position - _lastPosition;
 
-        if (GameManager.Instance._isTopdown == true)
+        if (InputManager.Instance.isTopdown == true)
         {
             _lastDirection = new Vector3(0, lastPositionY, 0);
         }

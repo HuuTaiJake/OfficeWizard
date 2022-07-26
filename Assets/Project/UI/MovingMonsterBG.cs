@@ -15,7 +15,6 @@ public class MovingMonsterBG : MonoBehaviour
     {
         moveTo1Scale = transform.localScale;
         moveTo2Scale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-
     }
     
     // Update is called once per frame
