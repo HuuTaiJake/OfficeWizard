@@ -19,7 +19,7 @@ MonoBehaviour:
   skillBaseCooldown: 1
   skillSize: 1
   skillRange: 1
-  skillForce: 10
+  skillForce: 50
   skillPower: 0
   projectiles:
   - {fileID: 8775366262801476497, guid: e2e3cff71737989468255e3b9c3b900a, type: 3}

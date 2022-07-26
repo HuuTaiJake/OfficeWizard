@@ -19,20 +19,20 @@ public class InputManager : MonoSingleton<InputManager>
     private float _inputHorizontal;
     private float _inputVerticalRaw;
     private float _inputHorizontalRaw;
-    [SerializeField] public bool _isTopdown;
-    [SerializeField] public bool _isMobile;
+    public bool isTopdown = true;
+    public bool _isMobile;
 
     public UnityAction OnSkillTrigger;
 
     private void Start()
     {
-        _gamemode = Gamemode.Normal;
+        _gamemode = Gamemode.Topdown;
         //_joystick = GetComponent<FixedJoystick>();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) _isTopdown = !_isTopdown;
+        //if (Input.GetKeyDown(KeyCode.Space)) _isTopdown = !_isTopdown;
         if (Input.GetKeyDown(KeyCode.Return)) _isMobile = !_isMobile;
 
         if (_isMobile)
@@ -75,7 +75,7 @@ public class InputManager : MonoSingleton<InputManager>
 
     public Gamemode GetGamemode()
     {
-        if (_isTopdown) _gamemode = Gamemode.Topdown;
+        if (isTopdown) _gamemode = Gamemode.Topdown;
         else _gamemode = Gamemode.Normal;
         return _gamemode;
     }
