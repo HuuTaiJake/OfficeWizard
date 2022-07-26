@@ -8,10 +8,10 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 1fa25d03934ea624a82bf2fcee6f0873, type: 3}
-  missingFiles: []
+  missingFiles:
+  - Assets/Project/Sprites/Exteriors/Modern_Exteriors_Complete_Tileset2.png
   errors:
-  - Texture was imported at a smaller size. Make sure 'Max Size' on '../../Project/Sprites/Exteriors/Modern_Exteriors_Complete_Tileset2.png'
-    is at least '2256'
+  - 'Missing texture asset: ../../Project/Sprites/Exteriors/Modern_Exteriors_Complete_Tileset2.png'
   - Could not find tile 414. Make sure the tilesets were successfully imported.
   - Could not find tile 413. Make sure the tilesets were successfully imported.
   - Could not find tile 335. Make sure the tilesets were successfully imported.
