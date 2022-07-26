@@ -11,7 +11,7 @@ ScriptedImporter:
   missingFiles:
   - Assets/Project/Sprites/Exteriors/Modern_Exteriors_Complete_Tileset.png
   errors:
-  - 'Missing texture asset: ../../Project/Sprites/Exteriors/Modern_Exteriors_Complete_Tileset.png'
+
   - 'Missing texture asset: ../../../../SERENE_VILLAGE_REVAMPED/Serene_Village_16x16.png'
   - Could not find tile 407. Make sure the tilesets were successfully imported.
   - Could not find tile 408. Make sure the tilesets were successfully imported.
