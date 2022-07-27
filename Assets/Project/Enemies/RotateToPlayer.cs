@@ -31,4 +31,12 @@ public class RotateToPlayer : MonoBehaviour
         yield return new WaitForSeconds(duration);
         Destroy(gameObject);
     }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.transform.CompareTag("Player"))
+        {
+            _player.GetComponent<CreatureAttribute>().TakePiercingDamage(5);
+        }
+    }
 }
