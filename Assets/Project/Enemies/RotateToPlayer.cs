@@ -37,6 +37,8 @@ public class RotateToPlayer : MonoBehaviour
         if (other.transform.CompareTag("Player"))
         {
             _player.GetComponent<CreatureAttribute>().TakePiercingDamage(5);
+
+            
         }
     }
 }
