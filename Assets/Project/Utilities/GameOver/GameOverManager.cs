@@ -17,7 +17,7 @@ public class GameOverManager : MonoBehaviour
 
     private void Update()
     {
-        if (player.GetComponent<CreatureAttribute>().currentHealth == 0 || Input.GetKeyDown(KeyCode.Space))
+        if (player.GetComponent<CreatureAttribute>().currentHealth <= 0 || Input.GetKeyDown(KeyCode.Space))
         {
             EndGame();
         }
