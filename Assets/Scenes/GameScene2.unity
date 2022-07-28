@@ -86945,6 +86945,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5598649070846926771, guid: 69699d82d2523b349908b919166119e6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5598649071553426169, guid: 69699d82d2523b349908b919166119e6, type: 3}
       propertyPath: m_Name
       value: Game Over Manager
