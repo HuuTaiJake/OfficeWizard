@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5213e8d50a065845bfa2fc353d62ef8, type: 3}
+  m_Name: TetrisGateConvo
+  m_EditorClassIdentifier: 
+  _allLines:
+  - speaker: {fileID: 11400000, guid: 68df8a5913c9b424e8f19980764b9042, type: 2}
+    dialogue: Wait a minute!!!
+  - speaker: {fileID: 11400000, guid: 68df8a5913c9b424e8f19980764b9042, type: 2}
+    dialogue: You must collect all four diamonds to gain more magic power!
+  - speaker: {fileID: 11400000, guid: 68df8a5913c9b424e8f19980764b9042, type: 2}
+    dialogue: Then, I will allow you to go in.

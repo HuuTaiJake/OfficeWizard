@@ -4,14 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class DialougeManager : MonoBehaviour
+public class DialogueManager : MonoSingleton<DialogueManager>
 {
     public TextMeshProUGUI speakerName, dialogue, navButtonText;
     public Image speakerSprite;
 
     private int _currentIndex;
     private Conversation _currentConvo;
-    private static DialougeManager _instance;
+    private static DialogueManager _instance;
     private Animator _anim;
     private Coroutine _typing;
 
@@ -28,23 +28,24 @@ public class DialougeManager : MonoBehaviour
         }
     }
 
-    public static void StartConversation(Conversation convo)
+    public void StartConversation(Conversation convo)
     {
-        _instance._anim.SetBool("isOpen", true);
-        _instance._currentIndex = 0;
-        _instance._currentConvo = convo;
-        _instance.speakerName.text = "";
-        _instance.dialogue.text = "";
-        _instance.navButtonText.text = ">>";
+        _anim = GetComponent<Animator>();
+        _anim.SetBool("isOpen", true);
+        _currentIndex = 0;
+        _currentConvo = convo;
+        speakerName.text = "";
+        dialogue.text = "";
+        navButtonText.text = ">>";
 
-        _instance.ReadNext();
+        ReadNext();
     }
 
     public void ReadNext()
     {
         if(_currentIndex > _currentConvo.GetLength())
         {
-            _instance._anim.SetBool("isOpen", false);
+            _anim.SetBool("isOpen", false);
             return;
         }
         speakerName.text = _currentConvo.GetLineByIndex(_currentIndex).speaker.GetName();
@@ -53,13 +54,13 @@ public class DialougeManager : MonoBehaviour
 
         if(_typing == null)
         {
-            _typing = _instance.StartCoroutine(TypeText(_currentConvo.GetLineByIndex(_currentIndex).dialogue));
+            _typing = StartCoroutine(TypeText(_currentConvo.GetLineByIndex(_currentIndex).dialogue));
         }
         else
         {
-            _instance.StopCoroutine(_typing);
+            StopCoroutine(_typing);
             _typing = null;
-            _typing = _instance.StartCoroutine(TypeText(_currentConvo.GetLineByIndex(_currentIndex).dialogue));
+            _typing = StartCoroutine(TypeText(_currentConvo.GetLineByIndex(_currentIndex).dialogue));
         }
 
         speakerSprite.sprite = _currentConvo.GetLineByIndex(_currentIndex).speaker.GetSprite();

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.2464749, g: 0.2823448, b: 0.34570262, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -82616,7 +82616,7 @@ Transform:
   - {fileID: 1015630206}
   - {fileID: 1599652046}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1715382008
 MonoBehaviour:
@@ -82990,9 +82990,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
+  near clip plane: 0.1
+  far clip plane: 5000
+  field of view: 60.000004
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -83017,8 +83017,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1853371623}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: 10, z: -10}
+  m_LocalRotation: {x: -0.003009618, y: 0.007197768, z: -0.000021885393, w: -0.9999696}
+  m_LocalPosition: {x: 3.7939496, y: -18.859806, z: -9.998782}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -86837,7 +86837,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5598649071553426175, guid: 69699d82d2523b349908b919166119e6, type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 5598649071553426175, guid: 69699d82d2523b349908b919166119e6, type: 3}
       propertyPath: m_AnchorMax.x
@@ -86942,7 +86942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6636865012652774162, guid: 94ddb7072ba30a94ca44c2357fc604b4, type: 3}
       propertyPath: m_RootOrder
-      value: 21
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6636865012652774162, guid: 94ddb7072ba30a94ca44c2357fc604b4, type: 3}
       propertyPath: m_AnchorMax.x

@@ -10,6 +10,7 @@ public class DiamondFinding : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        PlayerPrefs.SetInt("QuestFindDiamond", 0);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

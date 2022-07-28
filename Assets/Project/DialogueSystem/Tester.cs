@@ -12,6 +12,6 @@ public class Tester : MonoBehaviour
     }
     public void StartConvo()
     {
-        DialougeManager.StartConversation(convo);
+        DialogueManager.Instance.StartConversation(convo);
     }
 }

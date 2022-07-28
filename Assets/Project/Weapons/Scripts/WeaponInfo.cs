@@ -14,15 +14,35 @@ public class WeaponInfo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _weaponSprite = transform.Find("Frame/Sprite").GetComponent<SpriteRenderer>();
-        _weaponSprite.sprite = weaponConfig.weaponSprite;
+        //_weaponSprite = transform.Find("Frame/Sprite").GetComponent<SpriteRenderer>();
+        //_weaponSprite.sprite = weaponConfig.weaponSprite;
+        
+        //SetupJoystick();
+    }
+
+    private void OnEnable()
+    {
         SetupJoystick();
     }
-    
-    
+
+    private void OnDisable()
+    {
+        DestroyJoystick();
+    }
+
+    private void DestroyJoystick()
+    {
+        foreach (GameObject joystick in _joysticks)
+        {
+            Destroy(joystick);
+        }
+
+        }
+
     private void SetupJoystick()
     {
         var _joystickAsset = Resources.Load("Joysticks/Skill Joystick") as GameObject;
+        WeaponManager.Instance.EquipWeapon(GetComponent<WeaponInfo>());
         GameObject skillJoystick = GameObject.Find("Skill Joystick");
         foreach (SkillBehavior skill in weaponConfig.skills)
         {
